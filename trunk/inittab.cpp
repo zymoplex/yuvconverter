@@ -1,10 +1,9 @@
-/*****************************************************************************
-
-FileName: 	<inittab.cpp>
-
-File Description:
-Contains Modules to initialize the LUTs
-
+/**
+*****************************************************************************
+ *
+ * @file inittab.cpp
+ *
+ * @brief LUT initialization functions.
 *****************************************************************************/
 
 #include "inittab.h"
@@ -16,6 +15,7 @@ long int cgu_tab[256];
 long int cgv_tab[256];
 long int tab_76309[256];
 
+/* LUTs for RGB to YUV conversion */
 long int yr_tab[256];
 long int yg_tab[256];
 long int yb_tab[256];
@@ -30,15 +30,17 @@ unsigned char clp[1024];
 
 
 
-/*****************************************************************************
-  Routine:  void InitConvt(int width, int height)
-
-        returns        	: void
-		width			: frame width
-		height			: frame height
-  Description          	: Initializes the LUTs for yuvtorgb conversion
+/**
+******************************************************************************
+ *
+ * @brief Initializes LUTs used for YUVtoRGB conversion
+ *
+ * @param width  : frame width
+ * @param height : frame height
+ *
+ * @return void
+ *
 *****************************************************************************/
-
 void InitConvt(int width, int height) {
    long int crv,cbu,cgu,cgv;
    int i,ind;   
@@ -66,15 +68,15 @@ void InitConvt(int width, int height) {
         vb_tab[i] = i*SCALEVB;
       
    }
-	 
+     
    for (i=0; i<384; i++)
-	  clp[i] =0;
+      clp[i] =0;
    ind=384;
    for (i=0;i<256; i++)
-	   clp[ind++]=i;
+       clp[ind++]=i;
    ind=640;
    for (i=0;i<384;i++)
-	   clp[ind++]=255;
+       clp[ind++]=255;
 }
 
 
