@@ -1,0 +1,1 @@
+YUVconverter can convert from yuv420 Progressive Planar format to any other Raw Video Format. Also it can convert back from any Raw Video Format to YUV420 Progressive Planar format.
